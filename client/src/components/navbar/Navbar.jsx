@@ -1,7 +1,9 @@
+import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import logo from '../../assets/images/icon.svg';
 const Navbar = () => {
   const { user } = useContext(AuthContext);
 
@@ -9,7 +11,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">lamabooking</span>
+        <img  src={logo} alt=" Logo" style={{paddingTop:25 ,height:'120px' , width:'100px'}} />
         </Link>
         {user ? user.username : (
           <div className="navItems">
