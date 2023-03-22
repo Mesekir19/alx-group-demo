@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import logo from '../../assets/images/icon.svg';
+import LoginBtn from "../LogIn/Register/login";
+import SignupBtn from "../LogIn/Register/signup";
 const Navbar = () => {
+  const login = "Login";
+  const register = "Register";
   const { user } = useContext(AuthContext);
 
   return (
@@ -15,8 +19,9 @@ const Navbar = () => {
         </Link>
         {user ? user.username : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <div className="navButton"><SignupBtn name={register}/></div>
+            <div className="navButton"><LoginBtn name={login}/></div>
+            
           </div>
         )}
       </div>
