@@ -1,12 +1,14 @@
 .footer{
+  background-color: rgb(6, 6, 48);
   width: 100%;
-  width: 1024px;
   font-size: 12px;
 }
 
 .fLists{
-  width: 100%;
   display: flex;
+  padding-left: 202px;
+  padding-right: 202px;
+  padding-top: 40px;
   justify-content: space-between;
   margin-bottom: 50px;
 }
@@ -18,6 +20,6 @@
 
 .fListItem{
   margin-bottom: 10px;
-  color: #003580;
+  color: #edf1f6;
   cursor: pointer;
 }

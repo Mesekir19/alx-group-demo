@@ -1,8 +1,11 @@
 .navbar{
   height: 130px;
-  background-color: #003580;
+  background-color: #406ba6;
+  position:sticky;
+  top: 0;
   display: flex;
   justify-content: center;
+  z-index: 9999;
 }
 
 .navContainer{
@@ -24,5 +27,9 @@
   border: none;
   padding: 5px 10px;
   cursor: pointer;
-  color: #003580;
+  background-color: #033c64;
+  color: #ffffff;
+}
+.navButton:hover{
+  background-color: #b9901d;
 }
