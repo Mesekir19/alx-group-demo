@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   faBed,
   faCalendarDays,
@@ -16,8 +17,10 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
+import LoginBtn from '../LogIn/Register/login';
 
 const Header = ({ type }) => {
+  const loginr = "Sign in/Register";
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -53,7 +56,6 @@ const Header = ({ type }) => {
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
   };
-
   return (
     <div className="header">
       <div
@@ -64,13 +66,13 @@ const Header = ({ type }) => {
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? It's Genius.
+            WELCOME
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Lamabooking account
+            Experience our premier destination for luxury accommodations and exceptional service.
+             Explore our elegant hotels, featuring stunning views and unparalleled amenities.
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+           <LoginBtn name={loginr}/>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
