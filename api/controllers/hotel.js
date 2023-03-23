@@ -1,5 +1,7 @@
 import Hotel from "../models/Hotel.js";
 import Room from "../models/Room.js";
+import User from "../models/User.js";
+var nodemailer = require("nodemailer");
 
 export const createHotel = async (req, res, next) => {
   const newHotel = new Hotel(req.body);
