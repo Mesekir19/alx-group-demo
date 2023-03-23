@@ -16,11 +16,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import SignupBtn from './signup';
 
 const theme = createTheme();
 
 
 export default function LoginBtn(props) {
+  const register = "Register"
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -85,10 +87,7 @@ export default function LoginBtn(props) {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
+
             <Button
               type="submit"
               fullWidth
@@ -101,11 +100,6 @@ export default function LoginBtn(props) {
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>

@@ -17,10 +17,8 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
-import LoginBtn from '../LogIn/Register/login';
 
 const Header = ({ type }) => {
-  const loginr = "Sign in/Register";
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -72,7 +70,6 @@ const Header = ({ type }) => {
             Experience our premier destination for luxury accommodations and exceptional service.
              Explore our elegant hotels, featuring stunning views and unparalleled amenities.
             </p>
-           <LoginBtn name={loginr}/>
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />

@@ -27,7 +27,7 @@ export default function SignupBtn(props) {
       setOpen(true);
     };
   
-    const handleClose = () => {
+    const handleCloses = () => {
       setOpen(false);
     };
   
@@ -42,8 +42,8 @@ export default function SignupBtn(props) {
 
   return (
     <div>
-     <button variant="outlined" className="headerBtn" onClick={handleClickOpen}>{props.name}</button>
-           <Dialog open={open} onClose={handleClose}>
+     <button variant="outlined" className="headerBtn"  onClick={handleClickOpen}>{props.name}</button>
+           <Dialog open={open} onClose={handleCloses}>
         <DialogTitle>Sign in</DialogTitle>
         <DialogContent>
           
@@ -117,13 +117,6 @@ export default function SignupBtn(props) {
             >
               Sign Up
             </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>
@@ -131,7 +124,7 @@ export default function SignupBtn(props) {
 
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleCloses}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>
