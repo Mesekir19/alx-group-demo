@@ -97,3 +97,50 @@ export const getHotelRooms = async (req, res, next) => {
     next(err);
   }
 };
+export const hotelRev = async (req, res) => {
+  const { email, name, city, address } = req.body;
+  try {
+    const oldUser = await User.findOne({ email });
+    const hName = await Hotel.findone({ name });
+    const hCity = await Hotel.findone({ city });
+    const hAddress = await Hotel.findone({ address });
+
+  var transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      service: "gmail",
+      auth: {
+        user: process.env.USER,
+        pass: process.env.PASS,
+      },
+      secure: true
+    });
+
+    var mailOptions = {
+      from: "ourhotel@gmail.com",
+      to: oldUser.email,
+      subject: "Hotel Reservation",
+      html: `<html>
+      <body>
+      <h2> Hi There!</h2>
+      <h2> Thankyou for choosing us</h2>
+      <h2> Hotel Information</h2>
+      <li>Hotel Name: ${hName}</li>
+      <li>City: ${hCity}</li>
+      <li>Address: ${hAddress}</li>
+      </body>
+      <html>`,
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("Email sent: " + info.response);
+      }
+    });
+    console.log("email");
+  } catch (error) {
+      
+  }
+}
