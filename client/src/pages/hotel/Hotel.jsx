@@ -1,7 +1,6 @@
 import "./hotel.css";
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,15 +15,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
-
 const Hotel = () => {
   const location = useLocation();
+  console.log("Location " + location)
   const id = location.pathname.split("/")[2];
+  console.log("ID " + id);
+
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading, error } = useFetch(`/hotels/find/${id}`);
+
+
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -142,7 +145,7 @@ const Hotel = () => {
               </div>
             </div>
           </div>
-          <MailList />
+       
           <Footer />
         </div>
       )}

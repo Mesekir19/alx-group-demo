@@ -1,0 +1,59 @@
+POST http://localhost:8800/api/auth/register HTTP/1.0
+content-type: application/json
+
+{
+    "username": "mehari",
+    "email" : "mehari@example.com",
+    "country":"Ethiopia",
+    "img":"https//images.example.com",
+    "city": "Addis Ababa",
+    "phone": "0973997144",
+    "password": "mehari",
+    "isAdmin": true,
+    "timestamps":true
+}
+
+###
+
+
+POST http://localhost:8800/api/hotels HTTP/1.0
+content-type: application/json
+ 
+{
+"name": "blueskylight",
+  "type":"Big hotel adj",
+  "city": "Addis Ababa df",
+  "address": "sdf Akaki kaliti",
+  "distance":"500 km",
+  "photos":"httpsdf ",
+  "title":"dfthe bigest hotel",
+  "desc":" good",
+  "rating": 5,
+  "rooms": "7",
+  "cheapestPrice": 899,
+  "featured":true
+}
+
+###
+POST http://localhost:8800/api/rooms/641b57d0838f8bae052f29e3 HTTP/1.0
+content-type: application/json
+ 
+ {
+"title":" the bigest hotel",
+    "price": 889,
+    "maxPeople": 8,
+    "desc": "lsdfkjlj lsdjfl lkdjf ",
+    "roomNumbers": [{ "number": 899, "unavailableDates": "2023-08-12"}],
+  "timestamps": true 
+  }
+
+###
+
+POST http://localhost:8800/api/auth/login HTTP/1.0
+content-type: application/json
+
+{
+    "username": "mehari",
+    "password": "mehari"
+  
+}

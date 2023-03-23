@@ -44,7 +44,7 @@ export default function SignupBtn(props) {
     <div>
      <button variant="outlined" className="headerBtn"  onClick={handleClickOpen}>{props.name}</button>
            <Dialog open={open} onClose={handleCloses}>
-        <DialogTitle>Sign in 1</DialogTitle>
+        <DialogTitle>Sign in</DialogTitle>
         <DialogContent>
           
         <ThemeProvider theme={theme}>

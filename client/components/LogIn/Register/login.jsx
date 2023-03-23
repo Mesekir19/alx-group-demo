@@ -16,26 +16,13 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import axios from "axios";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {AuthContext} from "../../../context/AuthContext";
+import SignupBtn from './signup';
 
 const theme = createTheme();
 
 
 export default function LoginBtn(props) {
-  //use context for login button
-  const [credentials, setCredentials] = useState({
-    username: undefined,
-    password: undefined,
-  });
-
-  const { loading, error, dispatch } = useContext(AuthContext);
-
-  const navigate = useNavigate();
-
-
+  const register = "Register"
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -45,22 +32,15 @@ export default function LoginBtn(props) {
     const handleClose = () => {
       setOpen(false);
     };
-
-    const handleChange = (e) => {
-      setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    };
-    const handleClick = async (e) => {
-      e.preventDefault();
-      dispatch({ type: "LOGIN_START" });
-      try {
-        const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
-        dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-        navigate("/")
-      } catch (err) {
-        dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
-      }
-    };
   
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+    };
 
   return (
     <div>
@@ -86,14 +66,12 @@ export default function LoginBtn(props) {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form"  noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              type="text"
-              onChange={handleChange}
-              id="username"
+              id="email"
               label="Email Address"
               name="email"
               autoComplete="email"
@@ -107,20 +85,17 @@ export default function LoginBtn(props) {
               label="Password"
               type="password"
               id="password"
-              onChange={handleChange}
               autoComplete="current-password"
             />
 
             <Button
-              disabled={loading} 
-              onClick={handleClick}
+              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
             </Button>
-            {error && <span>{error.message}</span>}
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
